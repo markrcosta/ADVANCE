@@ -11,8 +11,21 @@ Most of the code also assumes that you have an instance of Neo4j installed on so
 
 If you want to know how I got the MAG data into a Neo4j database, visit here: [http://www.markcosta.net/load-the-microsoft-academic-graph-into-neo4j/] and here: [https://github.com/markrcosta/MAGtoNEO4J].
 
+If you run the scripts on your own server, you will also need to subscribe to [http://genderize.io]
+
 All of the code in this repository was written in R, using Microsoft's R Open.
 
 One thing to note - I make extensive use of parallelization at some points. I was working with a system with 12 core and 192 gb of RAM. If you are working with less, I suggest tinkering with the doParallel settings.
 
 ## Files
+We start with authors.R, which generates files for unique first names in the database by starting letter.
+
+genderize.R: which queries [http://www.genderize.io] for the predicted gender.
+
+A number of names came back ungenderized because the given and surnames were transposed. Run the following scripts to genderize the names in the second position for names in the first position that had no gender associated with them:
+
+prepLastName.R: creates files with unique second literal for each letter
+lastNameGenderize.R: makes the api call and stores gender in separate files
+authorIDLastName.R: merges the gender returned with the first literal and the authorID
+
+
