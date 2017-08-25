@@ -27,4 +27,16 @@ A number of names came back ungenderized because the given and surnames were tra
 4. lastNameGenderize.R: makes the api call and stores gender in separate files
 5. authorIDLastName.R: merges the gender returned with the first literal and the authorID
 
+After we obtain the data, we have to write the predicted gender to the database. The code in the file below only writes the gender predicted by the name in the first position.
+
+6. Neo4jGender.R
+
+Now down to the running of the disambiguation and gender polling.
+
+7. Main.R
+8. RetrieveAuthorPaperData.R
+9. FoSAnalysisByYear.R
+10. Disambiguation2.R
+11. 
+
 
